@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Listwidget extends StatelessWidget {
   final List<String> listaUsuario;
   final void Function() addNome;
-  final void Function(String name) deleteNome;
+  final void Function(int index) deleteNome;
 
   const Listwidget(
       {super.key,
@@ -22,14 +22,10 @@ class Listwidget extends StatelessWidget {
             return ListTile(
                 leading: Icon(Icons.person),
                 trailing: IconButton(
-                    onPressed: () => _deleteNome(listaUsuario[index]),
+                    onPressed: () => deleteNome(index),
                     icon: Icon(Icons.delete)),
                 title: Text(listaUsuario[index]));
           }),
     );
-  }
-
-  void _deleteNome(String name) {
-    deleteNome(name);
   }
 }

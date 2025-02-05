@@ -27,9 +27,10 @@ class _MyHomePageState extends State<HomePage> {
             children: <Widget>[
               InputWidget(controller: nomeController),
               Listwidget(
-                  listaUsuario: listaUsuario,
-                  addNome: addNome,
-                  deleteNome: deleteNome)
+                listaUsuario: listaUsuario,
+                addNome: addNome,
+                deleteNome: deleteNome,
+              )
             ]),
         floatingActionButton: FloatingActionButton(
           tooltip: "Adicionar nome",
@@ -49,9 +50,9 @@ class _MyHomePageState extends State<HomePage> {
     });
   }
 
-  void deleteNome(String name) {
+  void deleteNome(int index) {
     setState(() {
-      listaUsuario.remove(name);
+      listaUsuario.remove(listaUsuario[index]);
     });
   }
 }
