@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:to_do/widgets/InputWidget.dart';
+import 'package:to_do/widgets/listWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -24,29 +26,11 @@ class _MyHomePageState extends State<HomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-                  child: TextField(
-                      controller: nomeController,
-                      decoration: InputDecoration(
-                          label: Text("nome"), border: OutlineInputBorder()))),
-              SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: SizedBox(
-                      height: 500,
-                      child: ListView.builder(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 24),
-                          itemCount: listaUsuario.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                                leading: Icon(Icons.person),
-                                trailing: IconButton(
-                                    onPressed: () =>
-                                        deleteNome(listaUsuario[index]),
-                                    icon: Icon(Icons.delete)),
-                                title: Text(listaUsuario[index]));
-                          }))),
+              InputWidget(controller: nomeController),
+              Listwidget(
+                  listaUsuario: listaUsuario,
+                  addNome: addNome,
+                  deleteNome: deleteNome)
             ])),
         floatingActionButton: FloatingActionButton(
           tooltip: "Adicionar nome",
