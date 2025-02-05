@@ -13,21 +13,20 @@ class Listwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: SizedBox(
-            height: 500,
-            child: ListView.builder(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 24),
-                itemCount: listaUsuario.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                      leading: Icon(Icons.person),
-                      trailing: IconButton(
-                          onPressed: () => _deleteNome(listaUsuario[index]),
-                          icon: Icon(Icons.delete)),
-                      title: Text(listaUsuario[index]));
-                })));
+    return Expanded(
+      child: ListView.builder(
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 24),
+          itemCount: listaUsuario.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return ListTile(
+                leading: Icon(Icons.person),
+                trailing: IconButton(
+                    onPressed: () => _deleteNome(listaUsuario[index]),
+                    icon: Icon(Icons.delete)),
+                title: Text(listaUsuario[index]));
+          }),
+    );
   }
 
   void _deleteNome(String name) {

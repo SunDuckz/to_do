@@ -22,16 +22,15 @@ class _MyHomePageState extends State<HomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: Center(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
               InputWidget(controller: nomeController),
               Listwidget(
                   listaUsuario: listaUsuario,
                   addNome: addNome,
                   deleteNome: deleteNome)
-            ])),
+            ]),
         floatingActionButton: FloatingActionButton(
           tooltip: "Adicionar nome",
           onPressed: addNome,
